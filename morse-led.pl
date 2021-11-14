@@ -12,14 +12,19 @@ use IO::Prompt::Tiny qw( prompt );
 use Time::HiRes qw( usleep );
 
 my $message = shift || die "Usage: perl $0 'Some message'\n";
+my $pin_num = shift || 11; # 1 .. 40
 
 my $morse = as_morse( $message );
 $morse =~ s/\s+/ /g;
-print "'$message => $morse\n";
+print "Msg: '$message', Morse: $morse\n";
+
+my $pin_name  = 'RPI_PIN_' . $pin_num;
+my $pin_value = __PACKAGE__->$pin_name;
+print "Pin: $pin_name, Value: $pin_value\n\n";
 
 my $gpio = HiPi::GPIO->new;
 
-my $pin = $gpio->get_pin( RPI_PIN_11 );
+my $pin = $gpio->get_pin( $pin_value );
 $pin->mode( RPI_MODE_OUTPUT );
 
 #$pin->value( RPI_LOW ); exit; # Oops!
