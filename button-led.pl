@@ -11,8 +11,8 @@ use HiPi::GPIO;
 my $led_pin_num = shift || 11; # 1 .. 40
 my $btn_pin_num = shift || 12; # 1 .. 40
 
-my $led_pin_value = set_pin( $led_pin_num );
-my $btn_pin_value = set_pin( $btn_pin_num );
+my $led_pin_value = get_pin( $led_pin_num );
+my $btn_pin_value = get_pin( $btn_pin_num );
 
 my $gpio = HiPi::GPIO->new;
 
@@ -36,7 +36,7 @@ while ( 1 ) {
   }
 }
 
-sub set_pin {
+sub get_pin {
   my ( $pin_num ) = @_;
   my $pin_name  = 'RPI_PIN_' . $pin_num;
   my $pin_value = __PACKAGE__->$pin_name;
