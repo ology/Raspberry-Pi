@@ -27,8 +27,6 @@ my $gpio = HiPi::GPIO->new;
 my $pin = $gpio->get_pin( $pin_value );
 $pin->mode( RPI_MODE_OUTPUT );
 
-#$pin->value( RPI_LOW ); exit; # Oops!
-
 while ( 1 ) {
   my $response = prompt( 'Enter=go q=quit', 'Enter' );
 
