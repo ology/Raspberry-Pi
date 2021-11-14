@@ -8,7 +8,7 @@ use warnings;
 use Convert::Morse qw( as_morse );
 use HiPi qw( :rpi );
 use HiPi::GPIO;
-use IO::Prompt::Tiny 'prompt';
+use IO::Prompt::Tiny qw( prompt );
 use Time::HiRes qw( usleep );
 
 my $message = shift || die "Usage: perl $0 'Some message'\n";
