@@ -2,6 +2,9 @@
 use strict;
 use warnings;
 
+# The wiring is that of the first project in the
+# "Freenove Ultimate Starter Kit" at https://freenove.com/tutorial.html
+
 use Convert::Morse qw( as_morse );
 use HiPi qw( :rpi );
 use HiPi::GPIO;
