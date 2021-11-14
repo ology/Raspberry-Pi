@@ -37,7 +37,7 @@ while ( 1 ) {
 }
 
 sub set_pin {
-  my ($pin_num) = @_;
+  my ( $pin_num ) = @_;
   my $pin_name  = 'RPI_PIN_' . $pin_num;
   my $pin_value = __PACKAGE__->$pin_name;
   return $pin_value;
