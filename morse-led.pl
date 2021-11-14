@@ -33,6 +33,7 @@ while ( 1 ) {
   my $response = prompt( 'Enter=go q=quit', 'Enter' );
 
   if ( $response eq 'q' ) {
+    $pin->value( RPI_LOW );
     last;
   }
 
