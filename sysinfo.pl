@@ -5,7 +5,7 @@ use warnings;
 use RPi::SysInfo ();
 use HiPi::RaspberryPi;
 
-my $type  = shift || die "Usage: perl $0 [conf|net|fs|pi|pins|stat|gpiov|gpiora]\n";
+my $type  = shift || die "Usage: perl $0 [conf|net|fs|pi|pins|stat|gpiov|gpiora|dump]\n";
 my $first = shift // 0;
 my $last  = shift // 53;
  
