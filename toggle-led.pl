@@ -9,7 +9,7 @@ use HiPi qw( :rpi );
 use HiPi::GPIO;
 
 my $led_pin_num = shift || 11; # 1 .. 40
-my $btn_pin_num = shift || 12; # 1 .. 40
+my $btn_pin_num = shift || 12; # "
 
 my $led_pin_value = get_pin_value( $led_pin_num );
 my $btn_pin_value = get_pin_value( $btn_pin_num );
