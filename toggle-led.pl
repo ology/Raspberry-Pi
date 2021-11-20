@@ -5,6 +5,8 @@ use warnings;
 # The wiring is that of the third project in the
 # "Freenove Ultimate Starter Kit" at https://freenove.com/tutorial.html
 
+use IO::Async::Timer::Periodic;
+use IO::Async::Loop;
 use HiPi qw( :rpi );
 use HiPi::GPIO;
 
@@ -25,7 +27,18 @@ $btn_pin->set_pud( RPI_PUD_UP );
 
 my $current_level = RPI_LOW;
 
-while ( 1 ) {
+my $loop = IO::Async::Loop->new;
+
+my $timer = IO::Async::Timer::Periodic->new(
+   interval => 0.1,
+   on_tick => \&sense,
+);
+
+$timer->start;
+$loop->add( $timer );
+$loop->run;
+
+sub sense {
   my $btn_level = $btn_pin->value;
   my $led_level = $led_pin->value;
 
