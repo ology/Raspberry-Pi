@@ -30,7 +30,7 @@ my $current_level = RPI_LOW;
 my $loop = IO::Async::Loop->new;
 
 my $timer = IO::Async::Timer::Periodic->new(
-   interval => 0.1,
+   interval => 0.2,
    on_tick => \&sense,
 );
 
