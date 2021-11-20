@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-# The wiring is that of the third project in the
+# The wiring is that of the second project in the
 # "Freenove Ultimate Starter Kit" at https://freenove.com/tutorial.html
 
 use IO::Async::Timer::Periodic;
