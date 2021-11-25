@@ -16,7 +16,7 @@ my $pin_num = shift || 11; # 1 .. 40
 
 my $morse = as_morse( $message );
 $morse =~ s/\s+/ /g;
-print "Msg: '$message', Morse: $morse\n";
+print "Msg: '$message'\nMorse: $morse\n";
 
 my $pin_name  = 'RPI_PIN_' . $pin_num;
 my $pin_value = __PACKAGE__->$pin_name;
