@@ -8,8 +8,8 @@ use warnings;
 use RPi::WiringPi;
 use RPi::Const qw(:all);
 
-my $led_pin_num = shift || 11; # 1 .. 40
-my $btn_pin_num = shift || 12; # "
+my $led_pin_num = shift || 17; # GPIO numbering
+my $btn_pin_num = shift || 18; # "
 
 my $pi = RPi::WiringPi->new;
 
