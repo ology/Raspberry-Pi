@@ -18,6 +18,8 @@ my $morse = as_morse( $message );
 $morse =~ s/\s+/ /g;
 print "Msg: '$message', Morse: $morse\n";
 
+my $pi = RPi::WiringPi->new;
+
 my $pin = $pi->pin( $pin_num );
 $pin->mode( OUTPUT );
 
