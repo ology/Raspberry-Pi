@@ -25,6 +25,10 @@ $pin_red->mode( OUTPUT );
 $pin_green->mode( OUTPUT );
 $pin_blue->mode( OUTPUT );
 
+$pin_red->write( ON );
+$pin_green->write( ON );
+$pin_blue->write( ON );
+
 my $loop = IO::Async::Loop->new;
 
 my $timer = IO::Async::Timer::Periodic->new(
