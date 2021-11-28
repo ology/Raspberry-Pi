@@ -42,6 +42,7 @@ sub multi {
   my $r = int rand 101;
   my $g = int rand 101;
   my $b = int rand 101;
+  print "RGB = [$r, $g, $b]\n";
 
   $pin_red->pwm( $r );
   $pin_green->pwm( $g );
