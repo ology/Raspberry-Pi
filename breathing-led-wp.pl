@@ -37,6 +37,7 @@ $loop->add( $timer );
 $loop->run;
 
 sub breathe {
+  print "$i\n";
   $led_pin->pwm( $i );
 
   if ( $direction ) {
@@ -59,5 +60,4 @@ sub breathe {
       $i--;
     }
   }
-  print "$i\n";
 }
