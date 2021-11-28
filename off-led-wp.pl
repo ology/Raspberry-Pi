@@ -5,7 +5,7 @@ use warnings;
 use RPi::WiringPi;
 use RPi::Const qw(:all);
 
-my $led_pin_num = shift || 17; # GPIO numbering
+my $led_pin_num = shift || die "Usage: perl $0 GPIO-number\n";
 
 my $pi = RPi::WiringPi->new;
 
