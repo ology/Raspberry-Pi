@@ -30,7 +30,7 @@ $pin_blue->mode( PWM_OUT );
 my $loop = IO::Async::Loop->new;
 
 my $timer = IO::Async::Timer::Periodic->new(
-   interval => 0.2,
+   interval => 1,
    on_tick  => \&multi,
 );
 
