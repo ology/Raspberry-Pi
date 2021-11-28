@@ -21,11 +21,11 @@ my $led_pin = $pi->pin( $led_pin_num );
 
 $led_pin->mode( PWM_OUT );
 
-my $loop = IO::Async::Loop->new;
-
 my $i = 0;
 my $direction = 1;
 my $top = 63;
+
+my $loop = IO::Async::Loop->new;
 
 my $timer = IO::Async::Timer::Periodic->new(
    interval => 0.2,
