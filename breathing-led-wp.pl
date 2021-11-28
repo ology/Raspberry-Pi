@@ -6,6 +6,8 @@ use warnings;
 # "Freenove Ultimate Starter Kit" at
 #  https://freenove.com/tutorial.html
 
+# * This must be run as root
+
 use IO::Async::Timer::Periodic;
 use IO::Async::Loop;
 use RPi::WiringPi;
