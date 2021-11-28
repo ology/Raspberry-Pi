@@ -59,4 +59,5 @@ sub breathe {
       $i--;
     }
   }
+  print "$i\n";
 }
