@@ -10,6 +10,7 @@ use warnings;
 
 use IO::Async::Timer::Periodic;
 use IO::Async::Loop;
+use Iterator::Breathe;
 use RPi::WiringPi;
 use RPi::Const qw(:all);
 
@@ -21,9 +22,7 @@ my $led_pin = $pi->pin( $led_pin_num );
 
 $led_pin->mode( PWM_OUT );
 
-my $i = 0;
-my $direction = 1;
-my $top = 63;
+my $it = Iterator::Breathe->new( top => 63 );
 
 my $loop = IO::Async::Loop->new;
 
@@ -37,27 +36,9 @@ $loop->add( $timer );
 $loop->run;
 
 sub breathe {
-  print "$i\n";
-  $led_pin->pwm( $i );
+  print $it->i, "\n";
 
-  if ( $direction ) {
-    if ( $i >= $top ) {
-      $i--;
-      $direction = 0;
-      print "Change direction to down.\n";
-    }
-    else {
-      $i++;
-    }
-  }
-  else {
-    if ( $i <= 0 ) {
-      $i++;
-      $direction = 1;
-      print "Change direction to up.\n";
-    }
-    else {
-      $i--;
-    }
-  }
+  $led_pin->pwm( $it->i );
+
+  $it->iterate;
 }
