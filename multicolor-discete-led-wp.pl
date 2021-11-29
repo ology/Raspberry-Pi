@@ -11,15 +11,15 @@ use IO::Async::Loop;
 use RPi::WiringPi;
 use RPi::Const qw(:all);
 
-my $pin_num_red   = shift || 17; # GPIO numbering
-my $pin_num_green = shift || 18; # "
-my $pin_num_blue  = shift || 27; # "
+my $pin_num_red   = shift || 11; # Phyical numbering
+my $pin_num_green = shift || 12; # "
+my $pin_num_blue  = shift || 13; # "
 
 my $pi = RPi::WiringPi->new;
 
-my $pin_red   = $pi->pin( $pin_num_red );
-my $pin_green = $pi->pin( $pin_num_green );
-my $pin_blue  = $pi->pin( $pin_num_blue );
+my $pin_red   = $pi->pin( $pi->phys_to_gpio( $pin_num_red ) );
+my $pin_green = $pi->pin( $pi->phys_to_gpio( $pin_num_green ) );
+my $pin_blue  = $pi->pin( $pi->phys_to_gpio( $pin_num_blue ) );
 
 $pin_red->mode( OUTPUT );
 $pin_green->mode( OUTPUT );
