@@ -11,8 +11,8 @@ use RPi::WiringPi;
 use RPi::Const qw(:all);
 use Time::HiRes qw( usleep );
 
-my $message = shift || die "Usage: perl $0 'Some message'\n";
-my $pin_num = shift || 17; # GPIO numbering
+my $message = shift || die "Usage: perl $0 'Some message' pin-number\n";
+my $pin_num = shift || 11; # Physical numbering
 
 my $morse = as_morse( $message );
 $morse =~ s/\s+/ /g;
@@ -20,7 +20,7 @@ print "Msg: '$message', Morse: $morse\n";
 
 my $pi = RPi::WiringPi->new;
 
-my $pin = $pi->pin( $pin_num );
+my $pin = $pi->pin( $pi->phys_to_gpio( $pin_num ) );
 $pin->mode( OUTPUT );
 
 while ( 1 ) {

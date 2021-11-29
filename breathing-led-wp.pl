@@ -14,11 +14,11 @@ use Iterator::Breathe;
 use RPi::WiringPi;
 use RPi::Const qw(:all);
 
-my $led_pin_num = shift || 18; # GPIO numbering
+my $led_pin_num = shift || 12; # Physical numbering
 
 my $pi = RPi::WiringPi->new;
 
-my $led_pin = $pi->pin( $led_pin_num );
+my $led_pin = $pi->pin( $pi->phys_to_gpio( $led_pin_num ) );
 
 $led_pin->mode( PWM_OUT );
 
