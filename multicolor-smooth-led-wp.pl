@@ -27,7 +27,7 @@ $pin_red->mode( PWM_OUT );
 $pin_green->mode( PWM_OUT );
 $pin_blue->mode( PWM_OUT );
 
-$pi->pwm_mode( PWM_DEFAULT_MODE );
+$pi->pwm_mode( PWM_MODE_MS );
 $pi->pwm_clock( 192 );
 $pi->pwm_range( 2000 );
 
