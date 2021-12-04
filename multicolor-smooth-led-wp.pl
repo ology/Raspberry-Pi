@@ -28,7 +28,7 @@ $pin_green->mode( PWM_OUT );
 $pin_blue->mode( PWM_OUT );
 
 $pi->pwm_mode( PWM_DEFAULT_MODE );
-$pi->pwm_clock( PWM_DEFAULT_CLOCK );
+$pi->pwm_clock( 192 );
 $pi->pwm_range( 2000 );
 
 my $loop = IO::Async::Loop->new;
