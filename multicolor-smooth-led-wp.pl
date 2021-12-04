@@ -13,7 +13,7 @@ use IO::Async::Loop;
 use RPi::WiringPi;
 use RPi::Const qw(:all);
 
-my $pin_num_red   = shift || 11; # Phyical numbering
+my $pin_num_red   = shift || 11; # Physical numbering
 my $pin_num_green = shift || 12; # "
 my $pin_num_blue  = shift || 13; # "
 
