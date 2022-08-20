@@ -11,6 +11,10 @@ use RPi::WiringPi;
 use RPi::Const qw(:all);
 use Time::HiRes qw( usleep );
 
+use constant DOT  => 300_000;
+use constant DASH => 1;
+use constant SEP  => 500_000;
+
 my $message = shift || die "Usage: perl $0 'Some message' pin-number\n";
 my $pin_num = shift || 11; # Physical numbering
 
@@ -40,15 +44,15 @@ while ( 1 ) {
     $pin->write( ON );
 
     if ( $char eq '.' ) {
-      usleep 300_000;
+      usleep DOT;
     }
     elsif ( $char eq '-' ) {
-      sleep 1;
+      sleep DASH;
     }
 
     $pin->write( OFF );
 
-    usleep 500_000;
+    usleep SEP;
   }
 }
 
