@@ -8,7 +8,7 @@ use warnings;
 use Convert::Morse qw( as_morse );
 use IO::Prompt::Tiny qw( prompt );
 use RPi::WiringPi;
-use RPi::Const qw(:all);
+use RPi::Const qw( :all );
 use Time::HiRes qw( usleep );
 
 use constant DOT  => 300_000;
